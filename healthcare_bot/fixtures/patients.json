@@ -1,0 +1,17 @@
+[
+    {
+      "model": "healthcare_bot.patient",
+      "fields": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "date_of_birth": "1990-04-15",
+        "phone_number": "+1 234 567 8901",
+        "email": "johndoe@example.com",
+        "medical_condition": "Hypertension",
+        "medication_regimen": "Lisinopril 10mg once daily",
+        "last_appointment": "2024-08-01T10:00:00Z",
+        "next_appointment": "2024-09-20T15:00:00Z",
+        "doctor_name": "Dr. Jane Smith"
+      }
+    }
+  ]
