@@ -116,3 +116,13 @@ request to Dr. [Doctor's Name].*'  is displayed to the user. Initially, the idea
 If a user asks something that is not related to the healthcare domain, the bot will respond with a message stating that its designed to assist with health-related inquiries only.
 ![Irrelevant](./images/irrelevant.png)
 
+## Acknowledgements
+This project reflects a commitment to code modularity and reusability. It has built the code with these principles in mind, acknowledging that there are several areas for improvement that could enhance the application further.
+
+In future iterations, the views.py file could be refactored to improve organization, separating the service logic from the view logic for better maintainability. Adopting a microservices architecture could facilitate the creation of API-based endpoints, allowing for a more scalable and flexible application.
+
+Memory optimization is another area identified for enhancement. By storing user-linked conversations in a database, the application could manage long interactions more efficiently. Additionally, the extraction of key entities could also be stored persistently, further enriching the user experience.
+
+Initially, there was a plan to integrate LangChain to handle multiple LLM calls; however, this feature was set aside due to time constraints. Factory pattern was opted in favor of LangChain.
+
+Overall, this project offers a comprehensive exploration of chatbot interactions in the healthcare domain, and I intend to continue enhancing the application with additional features and improvements beyond the scope of the specified requirements.
