@@ -77,9 +77,20 @@ WSGI_APPLICATION = 'healthcare_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+    # SQLite configuration
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+
+    # Postgres configuration
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'healthcare_db',      # Name of your PostgreSQL database
+        'USER': 'postgres',         # Your PostgreSQL username
+        'PASSWORD': '123', # Your PostgreSQL password
+        'HOST': 'localhost',         # Database host (e.g., localhost)
+        'PORT': '5432',  # Port (default PostgreSQL port is 5432)
     }
 }
 

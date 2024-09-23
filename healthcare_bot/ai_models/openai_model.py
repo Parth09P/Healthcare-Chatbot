@@ -29,14 +29,6 @@ class OpenAIChatbot(AIChatbot):
                     {"role": "user", "content": message}
                 ]
             )
-            # response = openai.Completion.create(
-            #     engine="text-davinci-003",  # Or switch to "gpt-4" if available.
-            #     prompt=message,
-            #     max_tokens=150,  # Limit response length.
-            #     n=1,  # We want only a single response.
-            #     stop=None,  # No special stopping conditions needed.
-            #     temperature=0.7  # Controls randomness/creativity.
-            # )
             # Return the cleaned response text
             return completion.choices[0].text.strip()
         

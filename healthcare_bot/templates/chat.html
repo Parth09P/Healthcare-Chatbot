@@ -7,7 +7,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
         }
         #heading1 {
             text-align: center;
@@ -60,11 +73,12 @@
     </style>
 </head>
 <body>
-    <h1 id="heading1">Chat with AI Bot</h1>
+    <div id="container">
+    <h1 id="heading1">Chat with your Healthcare Bot</h1>
 
     <div id="chat-box">
         {% if patient_data %}
-            <p>Welcome, {{ patient_data.first_name }} {{ patient_data.last_name }}</p>
+            <p>Welcome, {{ patient_data.first_name }} {{ patient_data.last_name }}! Your doctor is {{ patient_data.doctor_name }}</p>
             <p>Medical Condition: {{ patient_data.medical_condition }}</p>
         {% else %}
             <p>No patient data available.</p>
@@ -102,5 +116,6 @@
             observer.observe(chatBox, { childList: true });
         });
     </script>
+    </div>
 </body>
 </html>

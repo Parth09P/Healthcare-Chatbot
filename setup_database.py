@@ -6,15 +6,16 @@ from decouple import config
 def create_database():
     """Create the PostgreSQL database if it doesn't exist."""
     try:
-        connection = psycopg2.connect(user=config('USER'), password='config(PASSWORD)', host=config('HOST'), port=config('PORT'))
+        connection = psycopg2.connect(user=config('USER'), password=config('PASSWORD'), host=config('HOST'), port=config('PORT'))
         connection.autocommit = True  # Enable autocommit mode
         cursor = connection.cursor()
         
-        # Create database if it doesn't exist
+        # Check if the database exists
         cursor.execute(sql.SQL("SELECT 1 FROM pg_catalog.pg_database WHERE datname = %s;"), [config('DB_NAME')])
         exists = cursor.fetchone()
         
         if not exists:
+            # Create the database
             cursor.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(config('DB_NAME'))))
             print(f"Database '{config('DB_NAME')}' created successfully.")
         else:
@@ -27,9 +28,11 @@ def create_database():
             cursor.close()
             connection.close()
 
-def create_table():
+
+def create_tables():
     """Create the Patient and ConversationSummary tables if they don't exist, and insert initial data."""
     try:
+        # Connect to the newly created database
         connection = psycopg2.connect(database=config('DB_NAME'), user=config('USER'), password=config('PASSWORD'), host=config('HOST'), port=config('PORT'))
         cursor = connection.cursor()
 
@@ -75,6 +78,9 @@ def create_table():
         
         print("Tables are set up successfully.")
 
+        # Commit the transaction to save changes
+        connection.commit()
+
     except Exception as error:
         print(f"Error creating tables or inserting data: {error}")
     finally:
@@ -82,6 +88,7 @@ def create_table():
             cursor.close()
             connection.close()
 
+
 if __name__ == "__main__":
     create_database()
-    create_table()
+    create_tables()
