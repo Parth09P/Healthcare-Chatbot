@@ -169,4 +169,4 @@ class ChatView(View):
         request.session['chat_history'] = []
 
         # Delete summaries for this patient
-        ConversationSummary.objects.filter(patient_id=patient_id).delete()
+        # ConversationSummary.objects.filter(patient_id=patient_id).delete()

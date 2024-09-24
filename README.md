@@ -82,6 +82,7 @@ After setting up the initial data, you need to create the database schema by run
 
 ```
 python manage.py makemigrations
+python manage.py migrate healthcare_bot --fake # This might be required if migrate does not work.
 python manage.py migrate
 ```
 
