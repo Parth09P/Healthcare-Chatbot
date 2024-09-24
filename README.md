@@ -5,10 +5,10 @@ Healthcare Chatbot with Appointment Scheduling & Medical Insights
 ## Overview:
 This project is designed to streamline patient-doctor communication in healthcare environments through an intelligent chatbot interface. Built on the Django framework, the chatbot assists patients in scheduling or rescheduling medical appointments and helps manage treatment protocols. The chatbot can interpret patient requests in natural language using Large Language Models and can also provide healthcare-related insights.
 
-The primary focus of this project is the seamless interaction between the patient and healthcare provider. When a patient requests a change to their appointment (e.g., rescheduling), the bot responds appropriately by acknowledging the request and notifying the healthcare provider. Simultaneously, the bot also extracts relevant entities from the conversations with the patient.
+The primary focus of this project is the seamless interaction between the patient and the healthcare provider. When a patient requests a change to their appointment (e.g., rescheduling), the bot responds appropriately by acknowledging the request and notifying the healthcare provider. Simultaneously, the bot also extracts relevant entities from the conversations with the patient.
 
 ### Tech Stack:
-The backend leverages Django as the primary framework, offering robust support for rapid development and secure handling of requests. It integrates with PostgreSQL for persistent data storage, maintaining patient details, appointment schedules, and medical records. Despite the usage of PostgreSQL, the application is built to be as stateless as possible, ensuring scalability and flexibility. Each interaction between the chatbot and the patient is processed in isolation, minimizing dependency on server state.
+The backend leverages Django as the primary framework, offering robust support for rapid development and secure handling of requests. It integrates with PostgreSQL for persistent data storage, and maintaining patient details, appointment schedules, and medical records. Despite the usage of PostgreSQL, the application is built to be as stateless as possible, ensuring scalability and flexibility. Each interaction between the chatbot and the patient is processed in isolation, minimizing dependency on the server state.
 
 The frontend UI is built using simple HTML, inline CSS, and inline JavaScript to ensure responsiveness and a smooth user experience. Additionally, the design is LLM-agnostic. While the Gemini model is currently in use, the system can easily be adapted to any other large language model with just a change in environment variables. The Factory Design Pattern is implemented to ensure seamless integration of different LLMs without requiring any code modifications.
 
@@ -40,7 +40,7 @@ Before you begin, ensure you have the following installed:
 - Gemini API Key (https://aistudio.google.com/app/apikey)
 - .env file
 
-For security an best practices, it is expected from the developer to manually create a .env file to store and use the environment variables. The ideal .env file should look something like this:
+For security and best practices, it is expected from the developer to manually create a .env file to store and use the environment variables. The ideal .env file should look something like this:
 ```
 # Chatbot variables
 CHATBOT_MODEL="gemini"
@@ -61,7 +61,7 @@ git clone https://github.com/Parth09P/Healthcare-Chatbot.git
 cd Healthcare-Chatbot
 ```
 2. Set Up Conda Environment
-To manage the dependencies, you'll be using Conda. An environment.yml file has been provided with all the necessary dependencies. Run the following commands to set up your environment:
+To manage the dependencies, an environment.yml file has been provided with all the necessary dependencies. Run the following commands to set up your environment:
 
 ```
 conda env create -f environment.yml
@@ -69,7 +69,7 @@ conda activate chatbot_healthcare  # or the name specified in environment.yml
 ```
 
 3. Database Setup
-You’ll need to create the database, tables, and some initial data. This can be done using the setup_database.py script:
+The following script can be run to create the database, tables, and some initial data. This can be done using the setup_database.py script:
 
 ```
 python setup_database.py
@@ -114,7 +114,7 @@ As per the requirements, if the patient asks to reschedule his appointment, a me
 request to Dr. [Doctor's Name].*'  is displayed to the user. Initially, the idea was to display a pop-up toast message beneath the chat box stating '*Patient [Name] is requesting an appointment change from [current time] to [requested time]*'. Due to time constraints, the part of the requirement is not implemented. Instead, a similar message is printed in the terminal. 
 ![Reschedule](./images/reschedule.png)
 
-If a user asks something that is not related to the healthcare domain, the bot will respond with a message stating that its designed to assist with health-related inquiries only.
+If a user asks something that is not related to the healthcare domain, the bot will respond with a message stating that it's designed to assist with health-related inquiries only.
 ![Irrelevant](./images/irrelevant.png)
 
 ## Acknowledgements
